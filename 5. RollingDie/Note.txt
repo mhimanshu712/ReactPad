@@ -1,0 +1,5 @@
+1.        align-self in flexbox
+
+2. Keep minimum data in state
+
+3. Downward data flow

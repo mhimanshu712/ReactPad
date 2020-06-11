@@ -1,0 +1,5 @@
+1.  To use props in constructor, you have to pass props to the super() function
+
+super(props)
+
+2. Can't setState() in constructor
