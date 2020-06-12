@@ -1,0 +1,3 @@
+>> Check out how to round each corner cell when the table has already been rounded
+
+>> Add a pattern validity checker

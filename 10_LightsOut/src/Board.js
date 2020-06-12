@@ -31,21 +31,29 @@ import './Board.css';
 
 class Board extends Component {
 
-  constructor(props) {
-    super(props);
-
-    // TODO: set initial state
+  static defaultProps = {
+    nrows:5,
+    ncols:5,
+    chanceLightStartsOn: 0.20
   }
 
-  /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
+  constructor(props) {
+    super(props);
+ 
+    this.state = {hasWon:false,board:this.createBoard()}
+  }
 
   createBoard() {
     let board = [];
-    // TODO: create array-of-arrays of true/false values
+    for(let i=0;i<this.props.nrows;i++){
+      let t = []
+      for(let j=0;j<this.props.ncols;j++){
+        t.push((Math.random() < this.props.chanceLightStartsOn))
+      }
+      board.push(t)
+    }
     return board
   }
-
-  /** handle changing a cell: update board & determine if winner */
 
   flipCellsAround(coord) {
     let {ncols, nrows} = this.props;
@@ -54,33 +62,57 @@ class Board extends Component {
 
 
     function flipCell(y, x) {
-      // if this coord is actually on board, flip it
 
       if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
         board[y][x] = !board[y][x];
       }
     }
 
-    // TODO: flip this cell and the cells around it
+    flipCell(y,x)
+    flipCell(y-1,x)
+    flipCell(y+1,x)
+    flipCell(y,x-1)
+    flipCell(y,x+1)
 
-    // win when every cell is turned off
-    // TODO: determine is the game has been won
 
-    this.setState({board, hasWon});
+    let hasWon = board.every(row => row.every(cell => !cell))
+
+    this.setState({board:board, hasWon:hasWon});
   }
 
 
-  /** Render game board or winning message. */
-
   render() {
+    if(this.state.hasWon){
+      return(
+        <div className='boards-title winner'>
+          <div className='neon-orange'>You</div>
+          <div className='neon-blue'> Won!</div>
+        </div>
+      )
+    }
 
-    // if the game is won, just show a winning msg & render nothing else
 
-    // TODO
+    return(
+      <div>
+        <div className="boards-title">
+          <div className="neon-orange">Lights</div>
+          <div className="neon-blue">Out</div>
+        </div>
 
-    // make table board
 
-    // TODO
+          <table className="Board">
+            <tbody>
+              {this.state.board.map((el,idx) => (
+                <tr>
+                  {el.map((ela,idy) =>(
+                    <Cell key={`${idx}-${idy}`} isLit={ela} flipCellsAroundMe = {()=> this.flipCellsAround(`${idx}-${idy}`)}/>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+      </div>
+    )
   }
 }
 
