@@ -1,0 +1,32 @@
+.box{
+    width: 200px;
+    height: 200px;
+}
+
+.color-0{
+    background-color: red;
+}
+.color-1{
+    background-color: blueviolet;
+}
+.color-2{
+    background-color: cadetblue;
+}
+.color-3{
+    background-color: cornflowerblue;
+}
+.color-4{
+    background-color: darkcyan;
+}
+.color-5{
+    background-color: darkorange;
+}
+.color-6{
+    background-color: deeppink;
+}
+.color-7{
+    background-color: gold;
+}
+.color-8{
+    background-color: green;
+}
