@@ -60,7 +60,7 @@ class SumDistro extends Rule {
 class FullHouse extends Rule {
   evalRoll = dice =>{
     let t = this.freq(dice);
-    return t.size === 2 && (t.values().next().value === 2 || t.values().next().value === 3)?this.score:0;
+    return (t.includes(2) && t.includes(3))? this.score: 0;
   }
 }
 
@@ -68,7 +68,16 @@ class FullHouse extends Rule {
 
 class SmallStraight extends Rule {
   evalRoll = dice =>{
-    
+    const d = new Set(dice);
+    // 234 + 1 or 5
+    if(d.has(2) && d.has(3) && d.has(4) && (d.has(1) || d.has(5)))
+      return this.score;
+
+    // 345 + 2 or 6
+    if(d.has(3) && d.has(5) && d.has(4) && (d.has(2) || d.has(6)))
+      return this.score;
+
+    return 0;
   }
 }
 
