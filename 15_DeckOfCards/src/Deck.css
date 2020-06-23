@@ -1,0 +1,11 @@
+.game{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.deck {
+    position: relative;
+    margin: 0 auto;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Card from './Card'
+import './Deck.css'
 
 class Deck extends Component {
     constructor(props) {
@@ -23,13 +24,16 @@ class Deck extends Component {
 
     async fetchCard(){
         let url = `https://deckofcardsapi.com/api/deck/${this.state.id}/draw/`
+        // As soon as button is clicked decrease left
+        this.setState(st => ({...st,left:st.left-1}))
         let res = await axios.get(url)
         res = res.data
         console.log(res)
+
         let img = res.cards[0].image
         this.setState(st => {
             let rot = (Math.random()*51)/100
-            return {...st,left:st.left-1,cards:[...st.cards,{img:img,rotation:rot}]}
+            return {...st,cards:[...st.cards,{img:img,rotation:rot}]}
         })
     }
 
@@ -45,7 +49,7 @@ class Deck extends Component {
                 {this.state.left>0 &&
                     <button onClick={this.handleClick}>Fetch Card!</button>
                 }
-                <div>
+                <div className="deck">
                     {this.state.cards.map(el =>(
                         <Card img={el.img} rotation={el.rotation}/>
                     ))}
