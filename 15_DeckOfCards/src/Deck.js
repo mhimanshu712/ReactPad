@@ -8,7 +8,8 @@ class Deck extends Component {
 
         this.state = {
             id:0,
-            cards:[{img:'https://deckofcardsapi.com/static/img/0D.png'}]
+            cards:[{img:'https://deckofcardsapi.com/static/img/0D.png',rotation:0.2}],
+            left:52
         }
         this.fetchCard = this.fetchCard.bind(this)
     }
@@ -27,7 +28,8 @@ class Deck extends Component {
         console.log(res)
         let img = res.cards[0].image
         this.setState(st => {
-            return {...st,cards:[...st.cards,{img:img}]}
+            let rot = (Math.random()*51)/100
+            return {...st,left:st.left-1,cards:[...st.cards,{img:img,rotation:rot}]}
         })
     }
 
@@ -40,10 +42,12 @@ class Deck extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleClick}>Fetch Card!</button>
+                {this.state.left>0 &&
+                    <button onClick={this.handleClick}>Fetch Card!</button>
+                }
                 <div>
                     {this.state.cards.map(el =>(
-                        <Card img={el.img}/>
+                        <Card img={el.img} rotation={el.rotation}/>
                     ))}
                 </div>
             </div>

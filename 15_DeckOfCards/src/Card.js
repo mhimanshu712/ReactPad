@@ -12,7 +12,7 @@ class Card extends Component {
 
     render() {
         return (
-            <img src={this.props.img}></img>
+            <img src={this.props.img} style={{transform:`rotate(${this.props.rotation}turn)`}}></img>
         )
     }
 }
