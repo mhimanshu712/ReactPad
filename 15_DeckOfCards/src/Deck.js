@@ -9,7 +9,7 @@ class Deck extends Component {
 
         this.state = {
             id:0,
-            cards:[{img:'https://deckofcardsapi.com/static/img/0D.png',rotation:0.2}],
+            cards:[{id:'007',img:'https://i.ibb.co/N1NzFH9/joker.png'}],
             left:52
         }
         this.fetchCard = this.fetchCard.bind(this)
@@ -23,18 +23,27 @@ class Deck extends Component {
     }
 
     async fetchCard(){
-        let url = `https://deckofcardsapi.com/api/deck/${this.state.id}/draw/`
-        // As soon as button is clicked decrease left
-        this.setState(st => ({...st,left:st.left-1}))
-        let res = await axios.get(url)
-        res = res.data
-        console.log(res)
+        try{
+            let url = `https://deckofcardsapi.com/api/deck/${this.state.id}/draw/`
+            // As soon as button is clicked decrease left
+            //this.setState(st => ({...st,left:st.left-1}))
+            // Colt used try catch instead
+            let res = await axios.get(url)
+            res = res.data
+            if(!res.success){
+                throw new Error('No cards left')
+            }
 
-        let img = res.cards[0].image
-        this.setState(st => {
-            let rot = (Math.random()*51)/100
-            return {...st,cards:[...st.cards,{img:img,rotation:rot}]}
-        })
+            console.log(res)
+
+            let card = res.cards[0]
+            this.setState(st => {
+                return {cards:[...st.cards,{id:card.code,img:card.image}]}
+            })
+        } catch (err){
+            this.setState({left:0})
+            console.log('No cards left')
+        }
     }
 
     handleClick = ()=>{
@@ -47,11 +56,14 @@ class Deck extends Component {
         return (
             <div>
                 {this.state.left>0 &&
-                    <button onClick={this.handleClick}>Fetch Card!</button>
+                    <button className="deck-btn" onClick={this.handleClick}>Fetch Card!</button>
                 }
                 <div className="deck">
                     {this.state.cards.map(el =>(
-                        <Card img={el.img} rotation={el.rotation}/>
+                        <Card 
+                        key={el.id} 
+                        img={el.img} 
+                        />
                     ))}
                 </div>
             </div>

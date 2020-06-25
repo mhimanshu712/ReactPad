@@ -1,4 +1,7 @@
 .card {
-    padding: 50px;
     position: absolute;
+    right: 0;
+    left: 0;
+    margin:auto;
+    margin-top: 100px;
 }

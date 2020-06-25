@@ -1,11 +1,19 @@
-.game{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-}
-
 .deck {
     position: relative;
-    margin: 0 auto;
+}
+
+.deck-btn {
+    background: none;
+    outline: none;
+    margin: 0.5em;
+    padding: 1em 2em;
+    color: white;
+    border-color: orange;
+    margin-top:30px;
+    transition: 0.25s;
+}
+
+.deck-btn:hover {
+    border-color: white;
+    /*box-shadow: inset 0 0 0 2em orange;*/
 }

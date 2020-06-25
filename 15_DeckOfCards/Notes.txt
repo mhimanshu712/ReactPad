@@ -1,0 +1,4 @@
+>> Use try catch block to check if the response is valid etc etc
+
+>> Center an "absolutely" positioned element by
+	margin: auto;
