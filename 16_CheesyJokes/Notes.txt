@@ -1,0 +1,2 @@
+>> To get JSON results only
+	headers:{ Accept: "application/json")
