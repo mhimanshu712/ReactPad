@@ -1,2 +1,5 @@
 >> To get JSON results only
 	headers:{ Accept: "application/json")
+
+>> arr.sort((a,b)=>b.votes-a.votes) instead of: arr.sort((a,b)=>b.votes<a.votes)
+	>> Because the return of comparator should be an int

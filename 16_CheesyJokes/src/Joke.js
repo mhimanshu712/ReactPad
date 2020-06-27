@@ -20,19 +20,24 @@ class Joke extends Component {
         }
     }
     
+    getEmoji(){ 
+        if(this.props.votes >=15){
+            return "em em-rolling_on_the_floor_laughing"
+        }else if(this.props.votes >= 12){
+            return "em em-laughing"
+        }else if(this.props.votes >= 9){
+            return "em em-smiley"
+        }else if(this.props.votes >= 6){
+            return "em em-slightly_smiling_face"
+        }else if(this.props.votes >= 3){
+            return "em em-neutral_face"
+        }else if(this.props.votes >= 0){
+            return "em em-confused"
+        }else{
+            return "em em-angry"
+        }
+    }
     
-    
-    
-    
-    
-    
-    "em em-rolling_on_the_floor_laughing"
-    "em em-laughing"
-    "em em-smiley"
-    "em em-slightly_smiling_face"
-    "em em-neutral_face"
-    "em em-confused"
-    "em em-angry"
     
     constructor(props) {
         super(props)
@@ -53,7 +58,7 @@ class Joke extends Component {
 
                 <div className='Joke-text'>{this.props.text}</div>
                 <div className="Joke-smiley">
-                <i class="em em-rolling_on_the_floor_laughing" aria-role="presentation" aria-label="ROLLING ON THE FLOOR LAUGHING"></i>
+                <i className={this.getEmoji()}></i>
                 </div>
             </div>
         )
