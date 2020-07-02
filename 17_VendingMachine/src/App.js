@@ -11,8 +11,12 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-      <Route exact path='/' render={() => <VendingMachine/>} />
-      <Route exact path='/soda' render={()=><Soda/>} />
+      <Route exact path='/' >
+        <VendingMachine/>
+      </Route>
+      <Route exact path='/soda' >
+        <Soda />
+      </Route>
       <Route exact path='/sardines' render={() => <Sardines />}/>
       <Route exact path='/chips' render={()=> <Chips/>} />
     </div>
