@@ -1,1 +1,5 @@
 >> 'Link' becomes 'a' in css
+
+>> Passing props & params in Route
+	<Route render={routeProps => <Soda {...routeProps} name='yo' />
+If we use Component={soda}  then ...routePropsis passed automatically

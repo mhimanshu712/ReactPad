@@ -17,8 +17,8 @@ function App() {
       <Route exact path='/soda' >
         <Soda />
       </Route>
-      <Route exact path='/sardines' render={() => <Sardines />}/>
-      <Route exact path='/chips' render={()=> <Chips/>} />
+      <Route exact path='/sardines' render={() => <Sardines />} />
+      <Route  path='/chips' component={Chips} />
     </div>
   );
 }

@@ -1,0 +1,5 @@
+>> Use <Redirect> for errors or 404
+
+>> Use history.push for normal redirects
+
+>> Wrap in with router to pass routerProps to a component
