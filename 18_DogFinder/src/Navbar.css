@@ -1,0 +1,43 @@
+.Navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 50px;
+    background-color: black;
+}
+
+.Navbar a {
+    text-decoration: none;
+    color:white;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding:10px;
+    transition: all 0.5s;
+}
+
+
+
+.Navbar-logo {
+    margin-left: 50px;
+    font-size: 1.2em;
+}
+
+.Navbar-links {
+    display: flex;
+    margin-right: 50px;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.Navbar-links .Link-active {
+    color:black;
+    background-color: white;
+}
+
+.Navbar .Navbar-links a:hover {
+    color:black;
+    background-color: white;
+    box-shadow: 10px 10px 15px rgba(255,255,255,0.2),-10px 10px 15px rgba(255,255,255,0.2);
+}

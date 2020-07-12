@@ -1,0 +1,25 @@
+.Dog {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Dog-card {
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 0 19px 23px rgba(0,0,0,0.3),0 10px 15px rgba(0,0,0,0.2);
+}
+
+.Dog-pic {
+    width: 100%;
+    border-radius: 1em 1em 0 0;
+}
+
+.Dog-age {
+    margin-top: 0;
+    color: #1f1f1f;
+}
