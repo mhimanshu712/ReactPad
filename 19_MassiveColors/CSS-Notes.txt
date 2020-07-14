@@ -1,0 +1,13 @@
+>> So ur using absolute positioning but you need to account for width.
+	{
+		width: 100px;
+		left: 50%;
+		margin-left: -50px;
+	}
+
+
+>> When you hover over colorBox style the copy button
+
+	.ColorBox:hover .copy-button{
+    		opacity: 1;
+	}
