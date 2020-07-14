@@ -11,3 +11,8 @@
 	.ColorBox:hover .copy-button{
     		opacity: 1;
 	}
+
+>> Absolute:  Relative to its nearest positioned ancestor
+>> Fixed:  Relative to the visible viewport
+
+>> Position contents inside of an 'Fixed positioned' element using flexbox
