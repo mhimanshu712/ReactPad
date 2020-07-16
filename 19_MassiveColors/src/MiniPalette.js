@@ -65,7 +65,7 @@ class MiniPalette extends Component {
             />
         ))
         return (
-            <div className={classes.root}>
+            <div className={classes.root} onClick={this.props.handleClick}>
                 <div className={classes.colors}>
                     {miniColorBoxes}
                 </div>

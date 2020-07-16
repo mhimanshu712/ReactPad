@@ -15,7 +15,7 @@ function App() {
   console.log(generatePalette(seedColors[4]))
   return (
     <Switch>
-      <Route exact path='/' render={()=> <PaletteList palettes={seedColors}/>} />
+      <Route exact path='/' render={(rP)=> <PaletteList {...rP} palettes={seedColors}/>} />
       <Route 
         exact 
         path='/palette/:id' 
