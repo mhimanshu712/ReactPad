@@ -18,3 +18,12 @@
 >> Position contents inside of an 'Fixed positioned' element using flexbox
 
 >> So you rounded the corners of a div but the content inside it are sticking out and and you can no more see the rounded corners. Just set overflow to hidden.
+
+>> Element with class a and b
+		.a.b{}
+
+>> Element with class b inside element with class A
+		.a .b {}
+
+>> Select both a and b 
+		.a, .b {}

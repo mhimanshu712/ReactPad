@@ -1,0 +1,2 @@
+>>  Stop Propagation on Link click 
+	onClick = {e => e.stopPropagation()}
