@@ -27,3 +27,5 @@
 
 >> Select both a and b 
 		.a, .b {}
+
+>> setting width: 100vh will make the scroll bars visible
